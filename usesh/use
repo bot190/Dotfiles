@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -euo pipefail
+
+FILESDIR="files"
+STOWARGS="-d ${FILESDIR} -t ${HOME}"
+USERC=".userc"
+
+# Load use helper functions {{{
+source "$(dirname $(readlink -f "${BASH_SOURCE[0]}"))/useutils"
+# }}}
+
+# Get all modules we want to "use" {{{
+deps=()
+for cmd in $(echo "$@" $(cat ${USERC} 2>/dev/null)| mkunique); do
+	deps+=("${cmd}")
+	if [[ -f "depends/${cmd}" ]]; then
+		deps+=($(cat "depends/${cmd}"))
+	fi
+done
+if [[ "${#deps[@]}" = 0 ]]; then
+	printf >&2 "No modules found or listed\n"
+	exit 1
+fi
+uniques=($(echo "${deps[@]}"| mkunique))
+# }}}
+
+# Stow and use pre/post functions {{{
+cmdfunc "pre" "${uniques[@]}"
+echo "Running 'stow' on: ${uniques[@]}"
+${STOW} ${STOWARGS} --adopt "${uniques[@]}"
+${STOW} ${STOWARGS} -R "${uniques[@]}"
+cmdfunc "post" "${uniques[@]}"
+# }}}
+
+# Save modules for later use
+echo "${uniques[@]}" > ${USERC}
+
+# vim: fdm=marker

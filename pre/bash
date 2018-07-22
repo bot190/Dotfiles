@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $DIR/helpers.sh
+
+# Install liquidprompt
+update_or_install https://github.com/nojhan/liquidprompt.git ~/.config/liquidprompt
