@@ -16,7 +16,6 @@ set foldlevelstart=99           " Don't start with files folded
 
 " Indent settings
 set autoindent	                " Auto-indent new lines
-filetype plugin indent on       " Enable filetype based indent
 set expandtab	                " Use spaces instead of tabs
 set shiftwidth=4                " Number of auto-indent spaces
 set smarttab	                " Enable smart-tabs
@@ -78,3 +77,5 @@ set updatetime=250
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+filetype plugin indent on       " Enable filetype based indent
