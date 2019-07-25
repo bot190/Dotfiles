@@ -1,10 +1,10 @@
 [user]
 	name = Ben Beauregard
-	email = 
+	email = bot190@gmail.com
 [core]
 	editor = vim
 [push]
-	default = simple
+	default = current
 	
 [alias]
     # Get the current branch name (not so useful in itself, but used in
@@ -13,7 +13,7 @@
     
     update = "!git pull origin $(git branch-name)"
     fpush  = "push --force"
-    amend = "!git commit --amend --no-edit"
+    amend = "!git commit --amend --no-edit --date=now"
 
     unapply = "!git stash show -p stash@{0} | git apply -R"
     cdiff = "git diff --cached"

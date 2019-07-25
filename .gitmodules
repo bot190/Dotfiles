@@ -1,0 +1,18 @@
+[submodule "files/tmux/.tmux/tmux-gitfpp"]
+    path = files/tmux/.tmux/plugins/tmux-gitfpp/
+    url = https://eos2git.cec.lab.emc.com/ben-beauregard/tmux-gitfpp
+
+[submodule "files/bash/.config/bashrc.d/dbhist"]
+	path = files/bash/.config/bashrc.d/dbhist
+	url = https://gist.github.com/7b4f308e0e7d70ed03180295b9bdc3af.git
+
+[submodule "usesh"]
+	path = usesh
+	url = https://github.com/msoucy/usesh
+
+[submodule "files/vim/.vim/bundle/Vundle.vim"]
+	path = files/vim/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "files/bash/.config/liquidprompt"]
+	path = files/bash/.config/liquidprompt
+	url = https://github.com/nojhan/liquidprompt.git

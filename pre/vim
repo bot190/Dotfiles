@@ -1,8 +1,0 @@
-#!/bin/bash
-
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source $DIR/helpers.sh
-
-# Install Vundle
-update_or_install https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
