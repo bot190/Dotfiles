@@ -16,3 +16,6 @@
 [submodule "files/bash/.config/liquidprompt"]
 	path = files/bash/.config/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
+[submodule "files/tmux/.tmux/plugins/tpm"]
+	path = files/tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
