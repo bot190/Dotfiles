@@ -3,6 +3,7 @@
 	email = bot190@gmail.com
 [core]
 	editor = vim
+	pager = less -X -F
 [push]
 	default = current
 	
