@@ -3,7 +3,18 @@
 
 # Package list
 PACKAGES=(
+    curl
+    jq
+    neovim
     tmux
+)
+
+# Github deb
+REPO_DEBS=(
+    https://github.com/ellie/atuin
+    https://github.com/sharkdp/bat
+    https://github.com/sharkdp/fd
+    https://github.com/BurntSushi/ripgrep
 )
 
 {{ $sudo := "sudo " -}}
@@ -19,5 +30,22 @@ printf '\nInitiating apt update..\n'
 
 printf '\nInstalling packages...\n'
 {{ $sudo }}apt install -y ${PACKAGES[@]}
+
+for repo in "${REPO_DEBS[@]}"
+do
+    LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' "${repo}/releases/latest")
+    LATEST_VERSION=$(echo "$LATEST_RELEASE" | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+    PACKAGE=${repo##*/}
+    DEB_URL="${repo}/releases/download/${LATEST_VERSION}/${PACKAGE}_${LATEST_VERSION//v/}_{{ .chezmoi.arch }}.deb"
+
+    printf "\n Downloading ${DEB_URL}\n"
+    TEMP_DEB="$(mktemp)".deb &&
+    curl -Lo "$TEMP_DEB" "$DEB_URL"
+
+    printf '\n Installing Deb package\n'
+    {{ $sudo }} apt install "$TEMP_DEB"
+    rm -f "$TEMP_DEB"
+
+done
 
 {{ end -}}
