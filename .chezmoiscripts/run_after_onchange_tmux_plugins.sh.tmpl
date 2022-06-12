@@ -1,0 +1,5 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/bin/sh
+# tmux.conf hash: {{ include "dot_tmux.conf" | sha256sum }}
+sh -c "~/.tmux/plugins/tpm/bin/install_plugins"
+{{ end -}}
