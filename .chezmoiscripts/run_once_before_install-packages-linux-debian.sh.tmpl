@@ -1,0 +1,23 @@
+{{ if eq .osid "linux-debian" "linux-ubuntu" -}}
+#!/bin/bash
+
+# Package list
+PACKAGES=(
+    tmux
+)
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+set -eufo pipefail
+
+# Update package list
+printf '\nInitiating apt update..\n'
+{{ $sudo }}apt update
+
+printf '\nInstalling packages...\n'
+{{ $sudo }}apt install -y ${PACKAGES[@]}
+
+{{ end -}}
