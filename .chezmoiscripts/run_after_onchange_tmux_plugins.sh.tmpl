@@ -4,4 +4,7 @@
 
 printf '\nInstalling tmux plugins\n'
 sh -c "~/.tmux/plugins/tpm/bin/install_plugins"
+
+# Always reload the tmux config when the config file changes
+tmux source-file ~/.tmux.conf
 {{ end -}}
