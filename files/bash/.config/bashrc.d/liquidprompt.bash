@@ -1,3 +1,1 @@
-#!/bin/bash
-
-source ~/.config//liquidprompt/liquidprompt
+source ~/.config/liquidprompt/liquidprompt

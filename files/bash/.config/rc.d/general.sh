@@ -9,19 +9,6 @@ function runIfExists {
     fi
 }
 
-function dus {
-    if [ -n "$1" ]; then
-        du -hd "$1" | sort -h
-    else
-        du -hd 1 | sort -h
-    fi
-}
-
-mkcdir () {
-    mkdir -p -- "$1" &&
-        cd -P -- "$1"
-}
-
 # Aliases
 
 ## Use exa if its available, fallback to LS otherwise
