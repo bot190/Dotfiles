@@ -1,0 +1,27 @@
+{{ if eq .osid "linux-debian" "linux-ubuntu" -}}
+#!/bin/bash
+
+
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+set -eufo pipefail
+
+PACKAGE_VERSION="0.4.0-devel3"
+PACKAGE_NAME="ble-${PACKAGE_VERSION}.tar.xz"
+
+PACKAGE_URL="https://github.com/akinomyoga/ble.sh/releases/download/v${PACKAGE_VERSION}/${PACKAGE_NAME}"
+
+
+printf "\n Downloading ${PACKAGE_URL}\n"
+curl -LO "$PACKAGE_URL"
+
+mkdir -p ~/.local/share/blesh
+tar xJf ${PACKAGE_NAME} --strip-components=1 -C ~/.local/share/blesh
+rm ${PACKAGE_NAME}
+
+
+{{ end -}}

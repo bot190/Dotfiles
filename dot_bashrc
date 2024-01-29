@@ -1,4 +1,7 @@
 # .bashrc
+
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+
 if [[ $- != *i* ]] ; then
   # shell is non-interactive. be done now!
   return
@@ -18,4 +21,4 @@ if [ -d $HOME/.config/rc.d ]; then
   done
 fi
 
-
+[[ ${BLE_VERSION-} ]] && ble-attach
