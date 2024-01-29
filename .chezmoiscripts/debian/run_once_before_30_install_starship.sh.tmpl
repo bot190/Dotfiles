@@ -1,0 +1,5 @@
+{{ if eq .osid "linux-debian" "linux-ubuntu" -}}
+#!/bin/bash
+
+curl -sS https://starship.rs/install.sh | sh
+{{ end -}}
