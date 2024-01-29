@@ -4,11 +4,13 @@
 # Package list
 PACKAGES=(
     curl
+    duf
     exa
     jq
     gawk
     net-tools
     neovim
+    ripgrep
     sysstat
     tmux
     zoxide
@@ -18,9 +20,7 @@ PACKAGES=(
 REPO_DEBS=(
     https://github.com/ellie/atuin
     https://github.com/sharkdp/bat
-    https://github.com/muesli/duf
     https://github.com/sharkdp/fd
-    https://github.com/BurntSushi/ripgrep
 )
 
 {{ $sudo := "sudo " -}}
