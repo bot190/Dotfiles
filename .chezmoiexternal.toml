@@ -1,10 +1,3 @@
-[".config/liquidprompt"]
-    type = "git-repo"
-    url = "https://github.com/nojhan/liquidprompt.git"
-    [".config/liquidprompt".pull]
-        args = ["--depth", "1"]
-    [".config/liquidprompt".clone]
-        args = ["--depth", "1"]
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
