@@ -12,7 +12,7 @@ function runIfExists {
 # Aliases
 
 ## Use exa if its available, fallback to LS otherwise
-which_ls=`runIfExists exa "ls --color"`
+which_ls=`runIfExists eza "ls --color"`
 alias ls="$which_ls"
 alias l='ls -lah'
 
