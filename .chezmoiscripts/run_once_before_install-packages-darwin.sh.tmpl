@@ -19,6 +19,9 @@ PACKAGES=(
     xsv
     zoxide
 )
+TAPS=(
+    homebrew/cask-fonts
+)
 
 CASKS=(
     1password
@@ -36,6 +39,8 @@ CASKS=(
 if test ! $(which brew); then
    printf '\n\n\e[33mHomebrew not found. \e[0mInstalling Homebrew...'
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+   # Enable brew for the rest of this script
+   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   printf '\n\n\e[0mHomebrew found. Continuing...'
 fi
@@ -53,6 +58,9 @@ brew cleanup
 
 printf '\n\nInstalling cask...\n'
 brew install cask
+
+printf '\n\nTapping Casks...\n'
+brew tap ${TAPS[@]}
 
 printf '\n\nInstalling cask apps...\n'
 brew install --cask ${CASKS[@]}
