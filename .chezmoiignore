@@ -6,6 +6,7 @@
 {{- if ne .chezmoi.os "darwin" }}
 .zshrc
 .zprofiles
+Library
 {{- end }}
 
 .oh-my-zsh/cache/completions
