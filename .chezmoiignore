@@ -6,3 +6,6 @@
 {{- if ne .chezmoi.os "darwin" }}
 .zshrc
 {{- end }}
+
+.oh-my-zsh/cache/completions
+.oh-my-zsh/cache/grep-alias
