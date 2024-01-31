@@ -2,3 +2,7 @@
 .bashrc
 .blerc
 {{- end }}
+
+{{- if ne .chezmoi.os "darwin" }}
+.zshrc
+{{- end }}
