@@ -14,7 +14,7 @@ alias lzd='lazydocker -f /Users/benbeauregard/enterprise/dev-compose-files/docke
 #    fi
 #}
 
-# export PATH="/Users/benbeauregard/anchorectl/snapshot/darwin-build_darwin_amd64_v1:$PATH"
+export PATH="/Users/benbeauregard/anchorectl/snapshot/darwin-build_darwin_arm64:$PATH"
 alias ractl='anchorectl --config ~/.anchorectl.rc.yaml'
 alias nactl='anchorectl --config ~/.anchorectl.nightly.yaml'
 alias lctl='anchorectl --config ~/.anchorectl.local.yaml'
