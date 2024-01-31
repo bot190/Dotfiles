@@ -1,6 +1,7 @@
 # TODO: update this to store the pull token in 1Password
 export GITHUB_RELEASE_PULL_TOKEN=$(security find-generic-password -a "$USER" -s "GITHUB_RELEASE_PULL_TOKEN" -w)
 
+alias sso='aws sso login --profile testing'
 alias lzd='lazydocker -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.ui.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.registry.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.prometheus.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.grafana.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.feeds.yaml -f /Users/benbeauregard/enterprise/dev-compose-files/docker-compose.keycloak.yaml'
 
 #anchorectl_env () {
