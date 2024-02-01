@@ -6,8 +6,18 @@
 [core]
     editor = vi
     pager = less -X -F
+
 [push]
     default = current
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgsign = true
 
 [alias]
     # Get the current branch name (not so useful in itself, but used in
@@ -20,8 +30,4 @@
 
     unapply = "!git stash show -p stash@{0} | git apply -R"
     cdiff = "git diff --cached"
-    scommit = "commit -S"
-
-[gpg]
-    format = ssh
-
+    scommit = "commit -s"
