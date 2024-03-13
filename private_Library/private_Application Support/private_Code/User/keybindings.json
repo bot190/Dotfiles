@@ -130,5 +130,15 @@
         "key": "alt+backspace",
         "command": "-deleteWordLeft",
         "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+shift+u",
+        "command": "workbench.action.tasks.runTask",
+        "args": "up"
+    },
+    {
+        "key": "cmd+shift+d",
+        "command": "workbench.action.tasks.runTask",
+        "args": "down"
     }
 ]
