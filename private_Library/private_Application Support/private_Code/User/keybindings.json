@@ -140,5 +140,29 @@
         "key": "cmd+shift+d",
         "command": "workbench.action.tasks.runTask",
         "args": "down"
-    }
+    },
+    {
+        "key": "cmd+shift+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "restart"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inViewsPicker && !terminal.active"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "workbench.action.quickOpenView",
+        "when": "!terminal.active"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenView"
+     }
 ]
