@@ -1,0 +1,1 @@
+shared/cert.pem filter=git-agecrypt diff=git-agecrypt

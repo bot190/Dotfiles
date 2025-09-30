@@ -1,0 +1,2 @@
+[config]
+"shared/cert.pem" = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGifaA5PsL2ntGPGfHUyn1Fa2fnjGzzEiX4sEvVSjOvG ben@ingvar"]
