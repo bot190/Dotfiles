@@ -15,6 +15,8 @@
     displayManager.gdm.enable = true;
   };
 
+  services.gvfs.enable = true;
+
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -46,6 +48,7 @@
     libqalculate
     mako
     hyprpolkitagent
+    nautilus
   ];
 
   fonts.packages = with pkgs; [
