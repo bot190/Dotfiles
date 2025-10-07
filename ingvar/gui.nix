@@ -49,6 +49,7 @@
     mako
     hyprpolkitagent
     nautilus
+    overskride
   ];
 
   fonts.packages = with pkgs; [
