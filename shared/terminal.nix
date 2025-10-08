@@ -38,7 +38,7 @@
         git-continue = "_git_continue";
       };
 
-      profileExtra = ''
+      bashrcExtra = ''
         ## Allow calling with or without number of commits to show
         function gl {
             if [ -n "$1" ]; then
