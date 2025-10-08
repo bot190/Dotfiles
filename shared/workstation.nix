@@ -2,6 +2,11 @@
 
 {
 
+  home.packages = with pkgs; [
+    loupe
+    clapper
+  ];
+
   # Automount Manager
   # Requires `services.udisks2` to be enabled
   services.udiskie.enable = true;
