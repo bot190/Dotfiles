@@ -2,6 +2,10 @@
 
 {
 
+  # Automount Manager
+  # Requires `services.udisks2` to be enabled
+  services.udiskie.enable = true;
+
   programs = {
     alacritty = {
       enable = true;

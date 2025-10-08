@@ -16,6 +16,7 @@
   };
 
   services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
