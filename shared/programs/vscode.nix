@@ -19,6 +19,7 @@
         "editor.renderWhitespace" = "boundary";
         "editor.fontLigatures" = true;
         "terminal.integrated.fontLigatures.enabled" = true;
+        "window.openFoldersInNewWindow" = "on";
       };
     };
   };
