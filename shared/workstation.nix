@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     loupe
     clapper
+    signal-desktop
   ];
 
   # Automount Manager
