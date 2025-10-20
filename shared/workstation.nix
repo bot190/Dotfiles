@@ -12,6 +12,33 @@
   # Requires `services.udisks2` to be enabled
   services.udiskie.enable = true;
 
+  services.hypridle = {
+    enable = true;
+    # systemdTarget = "graphical-session.target";
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+      };
+
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 330;
+          on-timeout = "niri msg action power-off-monitors";
+          on-resume = "niri msg action power-on-monitors";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
+
   programs = {
     alacritty = {
       enable = true;
