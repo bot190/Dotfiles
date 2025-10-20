@@ -37,8 +37,6 @@
     polkitPolicyOwners = [ "ben" ];
   };
 
-  programs.hyprlock.enable = true;
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable additional packages
