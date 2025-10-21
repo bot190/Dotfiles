@@ -70,6 +70,9 @@
   # Enable opensshd
   services.openssh.enable = true;
 
+  # Enable Power Profiles Daemon for power management
+  services.power-profiles-daemon.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ben = {
     isNormalUser = true;
