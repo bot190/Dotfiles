@@ -16,6 +16,7 @@
     kubectl
     wl-clipboard
     git-agecrypt
+    unzip
   ];
 
   programs = {

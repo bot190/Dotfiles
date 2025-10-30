@@ -6,6 +6,7 @@
     loupe
     clapper
     signal-desktop
+    orca-slicer
   ];
 
   # Automount Manager
