@@ -12,8 +12,8 @@
   # Configure Gnome Display Manager to start Niri
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
   };
+  services.displayManager.gdm.enable = true;
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;

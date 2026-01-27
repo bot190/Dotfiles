@@ -85,16 +85,21 @@
 
     git = {
       enable = true;
-      userName = "Ben Beauregard";
-      userEmail = "bot190@gmail.com";
-      aliases = {
-        branch-name = "!git rev-parse --abbrev-ref HEAD";
-        update = "!git pull origin $(git branch-name)";
-        fpush = "push --force";
-        amend = "!git commit --amend --no-edit --date=now";
+      settings = {
+        user = {
+          name = "Ben Beauregard";
+          email = "bot190@gmail.com";
+        };
+        alias = {
+          branch-name = "!git rev-parse --abbrev-ref HEAD";
+          update = "!git pull origin $(git branch-name)";
+          fpush = "push --force";
+          amend = "!git commit --amend --no-edit --date=now";
 
-        cdiff = "git diff --cached";
-        scommit = "commit -s";
+          cdiff = "git diff --cached";
+          scommit = "commit -s";
+        };
+        init.defaultBranch = "main";
       };
 
       signing = {
@@ -103,11 +108,6 @@
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHfRKKcEwIJw+SijhbGzBnGEv3YPRuORsOk06fkEiTgA";
         signer = "${pkgs.lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       };
-
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
-
     };
 
     starship = {
