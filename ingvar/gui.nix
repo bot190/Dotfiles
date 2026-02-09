@@ -15,6 +15,10 @@
   };
   services.displayManager.gdm.enable = true;
 
+  # Enable Gnome Keyring
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
+
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
@@ -49,6 +53,7 @@
     hyprpolkitagent
     nautilus
     overskride
+    gnome-keyring
   ];
 
   fonts.packages = with pkgs; [
