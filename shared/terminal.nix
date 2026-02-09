@@ -100,6 +100,9 @@
           scommit = "commit -s";
         };
         init.defaultBranch = "main";
+        push = {
+          autoSetupRemote = "simple";
+        };
       };
 
       signing = {
