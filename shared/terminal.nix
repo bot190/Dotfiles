@@ -4,6 +4,10 @@
   home.username = "ben";
   home.homeDirectory = "/home/ben";
 
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
+
   home.packages = with pkgs; [
     ripgrep
     fd
