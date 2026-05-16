@@ -106,7 +106,7 @@
         };
         init.defaultBranch = "main";
         push = {
-          autoSetupRemote = "simple";
+          autoSetupRemote = true;
         };
       };
 
