@@ -21,6 +21,7 @@
     wl-clipboard
     git-agecrypt
     unzip
+    uv
   ];
 
   programs = {
