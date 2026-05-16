@@ -103,6 +103,8 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.nano.enable = false;
+
   security.pki.certificateFiles = [
     ../shared/cert.pem
   ];

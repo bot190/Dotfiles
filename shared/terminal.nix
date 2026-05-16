@@ -4,10 +4,6 @@
   home.username = "ben";
   home.homeDirectory = "/home/ben";
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
   home.packages = with pkgs; [
     ripgrep
     fd
@@ -33,6 +29,11 @@
         filter_mode_shell_up_key_binding = "session";
 
       };
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
     };
 
     bash = {
