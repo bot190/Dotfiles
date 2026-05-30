@@ -105,6 +105,8 @@
 
   programs.nano.enable = false;
 
+  programs.nix-ld.enable = true;
+
   security.pki.certificateFiles = [
     ../shared/cert.pem
   ];

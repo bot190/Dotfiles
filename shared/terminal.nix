@@ -18,6 +18,8 @@
     git-agecrypt
     unzip
     uv
+    direnv
+    sops
   ];
 
   programs = {

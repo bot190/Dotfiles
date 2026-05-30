@@ -20,6 +20,7 @@
         "editor.fontLigatures" = true;
         "terminal.integrated.fontLigatures.enabled" = true;
         "window.openFoldersInNewWindow" = "on";
+        "redhat.telemetry.enabled" = false;
       };
     };
   };
