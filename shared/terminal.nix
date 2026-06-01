@@ -12,14 +12,15 @@
     jq
     xan
     hyperfine
-    helm
     kubectl
+    kubernetes-helm
+    fluxcd
     wl-clipboard
     git-agecrypt
     unzip
     uv
-    direnv
     sops
+    go-task
   ];
 
   programs = {
@@ -31,6 +32,11 @@
         filter_mode_shell_up_key_binding = "session";
 
       };
+    };
+
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
     };
 
     neovim = {
