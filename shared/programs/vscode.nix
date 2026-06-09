@@ -21,6 +21,8 @@
         "terminal.integrated.fontLigatures.enabled" = true;
         "window.openFoldersInNewWindow" = "on";
         "redhat.telemetry.enabled" = false;
+        "git.blame.editorDecoration.enabled" = true;
+        "extensions.ignoreRecommendations" = true;
       };
     };
   };
