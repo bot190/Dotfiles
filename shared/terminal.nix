@@ -13,6 +13,7 @@
     xan
     hyperfine
     kubectl
+    kubectl-rook-ceph
     kubernetes-helm
     fluxcd
     wl-clipboard
