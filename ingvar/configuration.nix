@@ -70,6 +70,17 @@
   # Enable opensshd
   services.openssh.enable = true;
 
+  # Manage Tailscale
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
+  # Optimization: Prevent systemd from waiting for network online
+  # (Optional but recommended for faster boot with VPNs)
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   # Enable Power Profiles Daemon for power management
   services.power-profiles-daemon.enable = true;
 
