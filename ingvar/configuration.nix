@@ -70,6 +70,20 @@
   # Enable opensshd
   services.openssh.enable = true;
 
+  sops = {
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    defaultSopsFile = ../secrets/ingvar.yaml;
+    secrets.atuin-sync-address = { };
+    templates."atuin.env" = {
+      content = ''
+        ATUIN_SYNC_ADDRESS=${config.sops.placeholder.atuin-sync-address}
+      '';
+      owner = "ben";
+    };
+  };
+
+  home-manager.extraSpecialArgs.atuinEnvironmentFile = config.sops.templates."atuin.env".path;
+
   # Manage Tailscale
   services.tailscale = {
     enable = true;

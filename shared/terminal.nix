@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  atuinEnvironmentFile,
+  pkgs,
+  ...
+}:
 
 {
   home.username = "ben";
@@ -31,7 +35,8 @@
       daemon.enable = true;
       settings = {
         filter_mode_shell_up_key_binding = "session";
-
+        sync_frequency = "10m";
+        auto_sync = true;
       };
     };
 
@@ -156,6 +161,10 @@
       enable = true;
       enableBashIntegration = true;
     };
+  };
+
+  systemd.user.services.atuin-daemon = {
+    Service.EnvironmentFile = atuinEnvironmentFile;
   };
 
 }
