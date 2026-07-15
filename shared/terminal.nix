@@ -1,4 +1,6 @@
 {
+  agent-of-empires,
+  llm-agents,
   atuinEnvironmentFile,
   pkgs,
   ...
@@ -26,6 +28,10 @@
     uv
     sops
     go-task
+    agent-of-empires.packages.${pkgs.stdenv.hostPlatform.system}.aoe-with-web
+    llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
+    llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex-acp
+    llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codegraph
   ];
 
   programs = {
@@ -155,6 +161,12 @@
         time.style = "blue";
         time.disabled = false;
       };
+    };
+
+    tmux = {
+      enable = true;
+      mouse = true;
+      prefix = "C-a";
     };
 
     zoxide = {

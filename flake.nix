@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
     # home-manager, used for managing user configuration
+    agent-of-empires.url = "github:agent-of-empires/agent-of-empires";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       # The `follows` keyword in inputs is used for inheritance.
@@ -24,6 +26,8 @@
       nixpkgs,
       home-manager,
       sops-nix,
+      agent-of-empires,
+      llm-agents,
       ...
     }@inputs:
     let
@@ -41,6 +45,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit agent-of-empires llm-agents;
+              };
 
               home-manager.users.ben = import ./ingvar/home.nix;
             }
