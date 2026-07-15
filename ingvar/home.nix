@@ -3,9 +3,12 @@
 {
 
   imports = [
+    ./niri.nix
     ../shared/terminal.nix
     ../shared/workstation.nix
+    ../shared/programs/niri.nix
     ../shared/programs/vscode.nix
+    ../shared/programs/waybar.nix
   ];
 
   gtk = {

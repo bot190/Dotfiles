@@ -31,9 +31,11 @@
       "vscode"
     ];
 
-  # Enable packages that have special modules
+  # Niri's package and configuration are managed by Home Manager. This module
+  # remains enabled for its GDM session, portal, D-Bus, and systemd integration.
   programs.niri.enable = true;
-  programs.waybar.enable = true;
+
+  # Enable packages that have special modules
   programs.firefox.enable = true;
   programs._1password.enable = true;
   programs._1password-gui = {

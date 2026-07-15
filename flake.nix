@@ -45,6 +45,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              # Preserve files that predate Home Manager when first taking
+              # ownership of them (notably the existing Niri configuration).
+              home-manager.backupFileExtension = "hm-backup";
               home-manager.extraSpecialArgs = {
                 inherit agent-of-empires llm-agents;
               };
