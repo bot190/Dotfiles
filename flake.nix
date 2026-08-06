@@ -18,6 +18,12 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Walker Launcher
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
   outputs =
@@ -28,6 +34,7 @@
       sops-nix,
       agent-of-empires,
       llm-agents,
+      walker,
       ...
     }@inputs:
     let
@@ -49,7 +56,7 @@
               # ownership of them (notably the existing Niri configuration).
               home-manager.backupFileExtension = "hm-backup";
               home-manager.extraSpecialArgs = {
-                inherit agent-of-empires llm-agents;
+                inherit agent-of-empires llm-agents walker;
               };
 
               home-manager.users.ben = import ./ingvar/home.nix;

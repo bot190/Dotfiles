@@ -49,7 +49,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     alacritty
-    walker
     libqalculate
     mako
     hyprpolkitagent

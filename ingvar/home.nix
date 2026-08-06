@@ -9,6 +9,7 @@
     ../shared/programs/niri.nix
     ../shared/programs/vscode.nix
     ../shared/programs/waybar.nix
+    ../shared/programs/walker.nix
   ];
 
   gtk = {
