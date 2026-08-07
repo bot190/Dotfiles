@@ -1,7 +1,7 @@
 {
   agent-of-empires,
+  config,
   llm-agents,
-  atuinEnvironmentFile,
   pkgs,
   ...
 }:
@@ -9,6 +9,15 @@
 {
   home.username = "ben";
   home.homeDirectory = "/home/ben";
+
+  sops = {
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    defaultSopsFile = ../secrets/ingvar.yaml;
+    secrets.atuin-sync-address = { };
+    templates."atuin.env".content = ''
+      ATUIN_SYNC_ADDRESS=${config.sops.placeholder.atuin-sync-address}
+    '';
+  };
 
   home.packages = with pkgs; [
     ripgrep
@@ -64,6 +73,7 @@
       shellAliases = {
         gs = "git status";
         git-continue = "_git_continue";
+        l = "ls -lah";
       };
 
       bashrcExtra = ''
@@ -136,7 +146,6 @@
         format = "ssh";
         signByDefault = true;
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHfRKKcEwIJw+SijhbGzBnGEv3YPRuORsOk06fkEiTgA";
-        signer = "${pkgs.lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       };
     };
 
@@ -176,7 +185,7 @@
   };
 
   systemd.user.services.atuin-daemon = {
-    Service.EnvironmentFile = atuinEnvironmentFile;
+    Service.EnvironmentFile = config.sops.templates."atuin.env".path;
   };
 
 }
