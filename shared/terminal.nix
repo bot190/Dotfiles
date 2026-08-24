@@ -41,6 +41,7 @@
     llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
     llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex-acp
     llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codegraph
+    llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.openspec
   ];
 
   programs = {
@@ -173,9 +174,68 @@
     };
 
     tmux = {
+      baseIndex = 1;
       enable = true;
+      historyLimit = 10000;
+      keyMode = "vi";
       mouse = true;
       prefix = "C-a";
+      terminal = "screen-256color";
+
+      extraConfig = ''
+        # Split panes while preserving the current working directory.
+        bind | split-window -h -c '#{pane_current_path}'
+        bind - split-window -v -c '#{pane_current_path}'
+        unbind '"'
+        unbind %
+
+        # Switch panes with Alt-arrow without the prefix.
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
+
+        # Reload the Home Manager generated configuration with <prefix>-r.
+        bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
+
+        # Save the current pane's history to a prompted filename.
+        bind-key P command-prompt -p 'save history to filename:' -I '~/tmux.history' 'capture-pane -S -; save-buffer %1 ; delete-buffer'
+
+        # Window status.
+        set -g status-bg black
+        set -g status-fg white
+        set-option -g status-justify centre
+        set-option -g status-left '#{prefix_highlight}#[fg=green,bg=black][#[bg=black,fg=cyan]#S#[fg=green]] #[fg=white]#T'
+        set-option -g status-left-length 20
+
+        setw -g automatic-rename on
+        set-window-option -g window-status-format '#[fg=cyan,dim]#I#[fg=blue]:#[default]#W#[fg=grey,dim]#F'
+        set-window-option -g window-status-current-format '#[bg=black,fg=cyan,bold]#I#[bg=black,fg=cyan]:#[fg=blue]#W#[fg=dim]#F'
+
+        set -g status-right '#[fg=green][#[fg=white]#{network_bandwidth}#[fg=green]] #[fg=green][#{cpu_fg_color}#{cpu_percentage}#[fg=green]] #{battery_status_bg}Batt:#{battery_percentage} #{battery_remain} #[fg=green] [#[fg=blue]%Y-%m-%d #[fg=blue]%H:%M#[fg=green]]'
+        set -g status-right-length 150
+        set -g @batt_remain_short 'true'
+
+        set -g allow-rename off
+
+        # Plugins from the reference configuration.
+        set -g @plugin 'tmux-plugins/tmux-cpu'
+        set -g @plugin 'jbnicolai/tmux-fpp'
+        set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+        set -g @plugin 'tmux-plugins/tmux-sidebar'
+        set -g @plugin 'odedlaz/tmux-status-variables'
+        set -g @plugin 'tmux-plugins/tmux-resurrect'
+        set -g @plugin 'tmux-plugins/tmux-battery'
+        set -g @plugin 'xamut/tmux-network-bandwidth'
+
+        set -g @resurrect-processes 'nmon'
+
+        if "test ! -d ~/.config/tmux/plugins/tpm" \
+          "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
+
+        # Initialize TPM last so it can discover every plugin declaration.
+        run '~/.config/tmux/plugins/tpm/tpm'
+      '';
     };
 
     zoxide = {
