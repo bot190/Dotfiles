@@ -171,6 +171,6 @@
         ];
       };
     };
-    git.signing.signer = "${pkgs.lib.getExe' pkgs._1password-cli "op-ssh-sign"}";
+    git.signing.signer = "${pkgs.lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
   };
 }
