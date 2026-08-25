@@ -37,6 +37,7 @@
     uv
     sops
     go-task
+    ssh-agent-switcher
     agent-of-empires.packages.${pkgs.stdenv.hostPlatform.system}.aoe-with-web
     llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex
     llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex-acp
@@ -76,6 +77,13 @@
         git-continue = "_git_continue";
         l = "ls -lah";
       };
+
+      profileExtra = ''
+        if [ -n "''${SSH_CONNECTION:-}" ]; then
+          "${pkgs.lib.getExe pkgs.ssh-agent-switcher}" --daemon 2>/dev/null || true
+          export SSH_AUTH_SOCK="/tmp/ssh-agent.${config.home.username}"
+        fi
+      '';
 
       bashrcExtra = ''
         ## Allow calling with or without number of commits to show
