@@ -5,15 +5,11 @@ rec {
     extra-substituters = [
       "https://agent-of-empires.cachix.org"
       "https://cache.numtide.com"
-      "https://walker.cachix.org"
-      "https://walker-git.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "agent-of-empires.cachix.org-1:Z+VwTlT8GT7giWN9HhJ+Am0DPGfbFVlafcQioBqJ6wY="
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
     ];
   };
 
@@ -34,12 +30,6 @@ rec {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Walker Launcher
-    elephant.url = "github:abenz1267/elephant";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
-    };
   };
 
   outputs =
@@ -49,7 +39,6 @@ rec {
       sops-nix,
       agent-of-empires,
       llm-agents,
-      walker,
       ...
     }:
     let
@@ -74,7 +63,7 @@ rec {
               home-manager.backupFileExtension = "hm-backup";
               home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
               home-manager.extraSpecialArgs = {
-                inherit agent-of-empires llm-agents walker;
+                inherit agent-of-empires llm-agents;
               };
 
               home-manager.users.ben = import ./ingvar/home.nix;
