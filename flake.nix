@@ -76,7 +76,9 @@ rec {
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${linux_system};
           extraSpecialArgs = {
-            nixpkgsConfig = { allowUnfree = true; };
+            nixpkgsConfig = {
+              allowUnfree = true;
+            };
             inherit agent-of-empires llm-agents;
           };
           modules = [

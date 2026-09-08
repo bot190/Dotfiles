@@ -29,7 +29,7 @@
 
   # Additional packages to support VS Code
   home.packages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
     nixd
   ];
 }
