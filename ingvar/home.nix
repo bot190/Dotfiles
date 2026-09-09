@@ -10,6 +10,7 @@
     ../shared/programs/vscode.nix
     ../shared/programs/waybar.nix
     ../shared/programs/walker.nix
+    ../shared/programs/onedrive.nix
   ];
 
   gtk = {

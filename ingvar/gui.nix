@@ -22,15 +22,6 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "1password"
-      "1password-cli"
-      "1password-gui"
-      "vscode"
-    ];
-
   # Niri's package and configuration are managed by Home Manager. This module
   # remains enabled for its GDM session, portal, D-Bus, and systemd integration.
   programs.niri.enable = true;

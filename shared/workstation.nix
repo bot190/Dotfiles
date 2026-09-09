@@ -7,6 +7,7 @@
     clapper
     signal-desktop
     orca-slicer
+    obsidian
   ];
 
   # Automount Manager

@@ -51,6 +51,14 @@ rec {
             ./ingvar/configuration.nix
             {
               nix.settings = nixConfig;
+              nixpkgs.config.allowUnfreePredicate =
+                pkg:
+                builtins.elem (nixpkgs.lib.getName pkg) [
+                  "1password"
+                  "1password-cli"
+                  "vscode"
+                  "obsidian"
+                ];
             }
             # make home-manager as a module of nixos
             # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
