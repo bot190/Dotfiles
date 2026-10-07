@@ -14,6 +14,7 @@
     enable = true;
   };
   services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
 
   # Enable Gnome Keyring
   services.gnome.gnome-keyring.enable = true;

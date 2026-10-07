@@ -15,7 +15,6 @@
   config = {
     # The NixOS niri module provides the display-manager session and portals.
     # Home Manager owns the user-facing package and configuration.
-    home.packages = [ pkgs.niri ];
 
     xdg.configFile."niri/config.kdl".text = ''
       input {
